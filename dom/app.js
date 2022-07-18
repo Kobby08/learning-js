@@ -1,3 +1,4 @@
+// remocve books
 // removing element from the DOM
 const list = document.querySelector("#book-list ul");
 
@@ -8,6 +9,7 @@ list.addEventListener("click", function(e) {
     }
 });
 
+// add books
 // adding new element to the DOM
 const addForm = document.forms["add-book"];
 
@@ -33,6 +35,17 @@ addForm.addEventListener("submit", function(e) {
     li.appendChild(bookName);
     li.appendChild(btn);
     list.appendChild(li);
+});
+
+// hide books
+const hideBox = document.querySelector("#hide");
+
+hideBox.addEventListener("change", function(e) {
+    if (hideBox.checked) {
+        list.style.display = "none";
+    } else {
+        list.style.display = "initial";
+    }
 });
 
 // getting and setting attributes
