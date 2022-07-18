@@ -1,3 +1,4 @@
+// fetch api
 fetch("todos/john.json")
     .then((response) => {
         console.log("resolved", response);
@@ -9,3 +10,15 @@ fetch("todos/john.json")
     .catch((err) => {
         console.log("rejected", err);
     });
+
+// async and await
+
+getTodos = async() => {
+    const response = await fetch("todos/quam.json");
+    const data = await response.json();
+    return data;
+};
+
+getTodos().then((data) => {
+    console.log("resolved data: ", data);
+});
