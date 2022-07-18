@@ -35,6 +35,7 @@ addForm.addEventListener("submit", function(e) {
     li.appendChild(bookName);
     li.appendChild(btn);
     list.appendChild(li);
+    m;
 });
 
 // hide books
