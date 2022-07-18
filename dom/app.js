@@ -9,7 +9,6 @@ list.addEventListener("click", function(e) {
 });
 
 // adding new element to the DOM
-
 const addForm = document.forms["add-book"];
 
 addForm.addEventListener("submit", function(e) {
@@ -35,3 +34,12 @@ addForm.addEventListener("submit", function(e) {
     li.appendChild(btn);
     list.appendChild(li);
 });
+
+// getting and setting attributes
+const elem = document.querySelector("#book-list li:first-child .name");
+
+console.log(elem.getAttribute("class"));
+console.log(elem.getAttribute("href"));
+console.log(elem.setAttribute("class", "test"));
+console.log(elem.hasAttribute("href"));
+console.log(elem.hasAttribute("class"));
