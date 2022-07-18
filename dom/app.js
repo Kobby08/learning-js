@@ -48,11 +48,18 @@ hideBox.addEventListener("change", function(e) {
     }
 });
 
-// getting and setting attributes
-const elem = document.querySelector("#book-list li:first-child .name");
+// filter books
+const search = document.forms["search-books"].querySelector("input");
 
-console.log(elem.getAttribute("class"));
-console.log(elem.getAttribute("href"));
-console.log(elem.setAttribute("class", "test"));
-console.log(elem.hasAttribute("href"));
-console.log(elem.hasAttribute("class"));
+search.addEventListener("keyup", function(e) {
+    const searchTerm = e.target.value.toLowerCase();
+    const books = list.getElementsByTagName("li");
+    Array.from(books).forEach(function(book) {
+        const title = book.firstElementChild.textContent.toLowerCase();
+        if (title.indexOf(searchTerm) != -1) {
+            book.style.display = "block";
+        } else {
+            book.style.display = "none";
+        }
+    });
+});
