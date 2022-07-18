@@ -1,4 +1,4 @@
-const getTodos = (callback) => {
+const getTodos = (resource, callback) => {
     request = new XMLHttpRequest();
 
     request.addEventListener("readystatechange", () => {
@@ -10,15 +10,17 @@ const getTodos = (callback) => {
         }
     });
 
-    request.open("GET", "todos/quam.json");
+    request.open("GET", resource);
     request.send();
 };
 
-getTodos((err, data) => {
+getTodos("todos/john.json", (err, data) => {
     console.log("callback is fired");
-    if (err) {
-        console.log(err);
-    } else {
+    console.log(data);
+    getTodos("todos/mario.json", (err, data) => {
         console.log(data);
-    }
+        getTodos("todos/quam.json", (err, data) => {
+            console.log(data);
+        });
+    });
 });
